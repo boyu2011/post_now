@@ -1,16 +1,18 @@
 PostNow::Application.routes.draw do
+
+	resources :users
   
-  match '/signup', :to => 'users#new'
+    match '/signup',  :to => 'users#new'
 
-  # contact_path => '/contact'
-  # contact_url  => 'http://localhost:3000/contact'
-  match '/contact', :to => 'pages#contact'
-  
-  match '/about', 	:to => 'pages#about'
+	# contact_path => '/contact'
+	# contact_url  => 'http://localhost:3000/contact'
+	match '/contact', :to => 'pages#contact'
+		
+	match '/about',   :to => 'pages#about'
 
-  match '/help',	:to => 'pages#help'
+	match '/help',	  :to => 'pages#help'
 
-  root			    :to => 'pages#home'
+	root			  :to => 'pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
