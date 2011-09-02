@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= title %></title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  
-  <!-- For security reason  -->
-  <%= csrf_meta_tag %>
-  
-  <!-- Use the Blueprint CSS framework as a foundation for that styling. -->
-  <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-  <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
-  
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+	  <title><%= title %></title>
+	  <%= stylesheet_link_tag :all %>
+	  <%= javascript_include_tag :defaults %>
+	  
+	  <!-- For security reason  -->
+	  <%= csrf_meta_tag %>
+	  
+	  <!-- look for a file called app/views/layouts/_stylesheets -->
+	  <%= render 'layouts/stylesheets' %>
+	</head>
+	<body>
+		<div class="container">
+			<%= render 'layouts/header' %>
+		
+			<section class="round">
+				<%= yield %>
+			</section>
+		
+			<%= render 'layouts/footer' %>
+		</div>
+	</body>
 </html>

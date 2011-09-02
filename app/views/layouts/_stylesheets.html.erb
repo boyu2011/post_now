@@ -1,0 +1,14 @@
+  <!-- [if lt IE 9] >
+  	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  
+  <!-- Use the Blueprint CSS framework as a foundation for that styling. -->
+  <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+  <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
+  
+  <!-- [if lt IE 8]>
+  	<%= stylesheet_link_tag 'blueprint/ie' %>
+  <![endif]-->
+  
+  <!-- Import custom CSS file -->
+  <%= stylesheet_link_tag 'custom', :media => 'screen' %>
