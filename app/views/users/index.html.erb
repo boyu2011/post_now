@@ -1,0 +1,13 @@
+<h1>
+	All users
+</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+	<!-- Rails automatically iterates through them and 
+	     renders each one with the _user.html.erb partial.-->
+	<%= render @users %>
+</ul>
+
+<%= will_paginate %>
