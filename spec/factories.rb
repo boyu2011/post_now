@@ -12,3 +12,7 @@ Factory.sequence :email do |n|
 	"person-#{n}@postnow.com"
 end
 
+Factory.define :micropost do |micropost|
+	micropost.content "test content"
+	micropost.association :user
+end

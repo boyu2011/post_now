@@ -1,10 +1,16 @@
 PostNow::Application.routes.draw do
 
+  get "microposts/new"
+
+  get "microposts/destroy"
+
     get "sessions/new"
 
 	resources :users
 	
 	resources :sessions, :only => [:new, :create, :destroy]
+	
+	resources :microposts, :only => [:create, :destroy]
   
     match '/signup',  :to => 'users#new'
     
