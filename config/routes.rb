@@ -1,16 +1,26 @@
 PostNow::Application.routes.draw do
 
-  get "microposts/new"
+  	get "microposts/new"
 
-  get "microposts/destroy"
+  	get "microposts/destroy"
 
     get "sessions/new"
 
-	resources :users
+	resources :users do
+		# The member method means that the routes respond 
+		# to URLs containing the user id.
+		# E.g. following_user_path(1), followers_user_path(1)
+		member do
+			get :following, :followers
+		end
+	end
 	
-	resources :sessions, :only => [:new, :create, :destroy]
+	resources :sessions,	:only => [:new, :create, :destroy]
 	
-	resources :microposts, :only => [:create, :destroy]
+	resources :microposts,  :only => [:create, :destroy]
+	
+	# follows the Microposts resource example
+	resources :relationships, :only => [:create, :destroy]
   
     match '/signup',  :to => 'users#new'
     

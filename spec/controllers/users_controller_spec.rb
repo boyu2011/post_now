@@ -304,8 +304,8 @@ describe UsersController do
 		describe "as a non-signed-in user" do
 			
 			it "should deny access" do
-				#delete :destroy, :id => @user
-				#response.should redirect_to(signin_path)
+				delete :destroy, :id => @user
+				response.should redirect_to(signin_path)
 			end
 			
 		end
@@ -339,5 +339,25 @@ describe UsersController do
 		end
 	end
 
+	describe "follow pages" do
+
+		describe "when not signed in" do
+			
+			it "should protect 'following'" do
+				get :following, :id => 1
+				response.should redirect_to(signin_path)
+			end
+			
+			it "should protect 'followers'" do
+				get :followers, :id => 1
+				response.should redirect_to(signin_path)
+			end
+		end
+		
+		describe "when signed in" do
+		
+		end
+	
+	end
 	
 end
